@@ -62,9 +62,7 @@ class _MyAppState extends State<MyApp> {
                   setState(() => _capturedImage = image);
                 },
                 onFaceDetected: (Face? face) {
-                  //Do something
-                      print("FACE DETECTED -->");
-                      print(Face);
+                  //Face Detected
                 },
                 messageBuilder: (context, face) {
                   if (face == null) {
@@ -80,7 +78,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   Widget _message(String msg, int msgType) => Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 30),
+    padding: const EdgeInsets.symmetric(horizontal: 55, vertical: 15),
     child: Text(msg,
         textAlign: TextAlign.center,
         style: TextStyle(
