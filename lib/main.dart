@@ -42,14 +42,40 @@ class _MyAppState extends State<MyApp> {
                       width: double.maxFinite,
                       fit: BoxFit.fitWidth,
                     ),
-                    ElevatedButton(
-                        onPressed: () => setState(() => _capturedImage = null),
-                        child: const Text(
-                          'Capture Again',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              fontSize: 14, fontWeight: FontWeight.w700),
-                        ))
+                    Container(
+                      width: double.infinity,
+                      child: Row (
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const SizedBox(width: 16.0),
+                            Expanded(
+                              flex: 1,
+                              child: ElevatedButton(
+                                  onPressed: () =>
+                                      setState(() => _capturedImage = null),
+                                  child: const Text(
+                                    'Capture Again',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        fontSize: 14, fontWeight: FontWeight.w700),
+                                  )),
+                            ),
+                            const SizedBox(width: 16.0),
+                            Expanded(
+                              flex: 1,
+                              child: ElevatedButton(
+                                  onPressed: () =>
+                                      setState(() => _capturedImage = null),
+                                  child: const Text(
+                                    'Done',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        fontSize: 14, fontWeight: FontWeight.w700),
+                                  )),
+                            ),
+                            const SizedBox(width: 16.0),
+                          ]),
+                    ),
                   ],
                 ),
               );
@@ -78,13 +104,16 @@ class _MyAppState extends State<MyApp> {
   }
 
   Widget _message(String msg, int msgType) => Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 55, vertical: 15),
-    child: Text(msg,
-        textAlign: TextAlign.center,
-        style: TextStyle(
-            fontSize: 14, height: 1.5, fontWeight: FontWeight.bold, color: msgType == 1 ? Colors.green : Colors.red,
-          backgroundColor: msgType == 1 ? Colors.green.shade50 : Colors.red.shade50,
-        )
-    ),
-  );
+        padding: const EdgeInsets.symmetric(horizontal: 55, vertical: 15),
+        child: Text(msg,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 14,
+              height: 1.5,
+              fontWeight: FontWeight.bold,
+              color: msgType == 1 ? Colors.green : Colors.red,
+              backgroundColor:
+                  msgType == 1 ? Colors.green.shade50 : Colors.red.shade50,
+            )),
+      );
 }
